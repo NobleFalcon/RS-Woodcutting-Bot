@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="woodcuttingBotten:jar">
+    <output-path>$USER_HOME$/Documents/RSPeer/scripts</output-path>
+    <root id="archive" name="woodcuttingBotten.jar">
+      <element id="module-output" name="woodcuttingBotten" />
+    </root>
+  </artifact>
+</component>
