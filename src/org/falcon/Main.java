@@ -15,24 +15,25 @@ import org.rspeer.ui.Log;
 public class Main extends Script {
     int treesCut = 0;
 
+    public void waitUntilConditionDone(boolean action, int timeout) {
+        Time.sleepUntil(() -> action, () -> !action, timeout);
+    }
+
     @Override
     public int loop() {
         // Informs user about script.
         SceneObject Tree = SceneObjects.getNearest("Tree");
         SceneObjects.newQuery().names("Tree");
 
-        if (Tree.getName() != null)
-        {
+        if (Tree.getName() != null) {
             Tree.interact("Chop down");
-            Time.sleepUntil(() -> SceneObjects.newQuery()
-                    .on(Tree.getPosition())
-                    .actions("Chop down")
-                    .results()
-                    .isEmpty(), () -> !SceneObjects.newQuery()
-                    .on(Tree.getPosition())
-                    .actions("Chop down")
-                    .results()
-                    .isEmpty(), 3000);
+            waitUntilConditionDone(
+                    SceneObjects.newQuery()
+                            .on(Tree.getPosition())
+                            .actions("Chop down")
+                            .results()
+                            .isEmpty(), 3000
+            );
             treesCut++;
             Log.fine("Trees cut %s", treesCut);
         }
