@@ -25,13 +25,11 @@ public class Main extends Script {
 
         if (Tree.getName() != null) {
             Tree.interact("Chop down");
-            waitUntilConditionDone(
-                    SceneObjects.newQuery()
-                            .on(Tree.getPosition())
-                            .actions("Chop down")
-                            .results()
-                            .isEmpty(), 3000
-            );
+            waitUntilConditionDone(SceneObjects.newQuery()
+                    .on(Tree.getPosition())
+                    .actions("Chop down")
+                    .results()
+                    .isEmpty(), 3000);
             treesCut++;
             Log.fine("Trees cut %s", treesCut);
         }
