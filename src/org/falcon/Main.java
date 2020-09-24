@@ -11,8 +11,6 @@ import org.rspeer.script.Script;
 import org.rspeer.script.ScriptMeta;
 import org.rspeer.ui.Log;
 
-import java.util.Arrays;
-
 @ScriptMeta(developer = "Falcon", name = "Professional Cutter", desc = "Cutting trees.", version = 1.1)
 public class Main extends Script {
     int treesCut = 0;
