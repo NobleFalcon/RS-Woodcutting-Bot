@@ -17,6 +17,7 @@ public class Main extends Script {
 
     @Override
     public int loop() {
+        Time.sleep(500, 850);
         Item[] inventoryLogs = Inventory.getItems(item -> item.getName().equals("Logs"));
 
         // Drop logs when inventory is full.
@@ -51,10 +52,9 @@ public class Main extends Script {
             int logsChopped = Inventory.getItems(item -> item.getName().equals("Logs")).length - inventoryLogs.length;
 
             if (logsChopped > 0) {
-            totalLogsCut += logsChopped;
+                totalLogsCut += logsChopped;
+                Log.fine("Trees cut %s", totalLogsCut);
             }
-
-            Log.fine("Trees cut %s", totalLogsCut);
         }
         return Random.low(2000, 5000);
     }
