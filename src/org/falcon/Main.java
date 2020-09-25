@@ -22,8 +22,8 @@ public class Main extends Script {
 
         // Drop logs when inventory is full.
         if (Inventory.isFull()) {
-            for (Item logs : inventoryLogs) {
-                logs.interact("Drop");
+            for (Item inventoryLog : inventoryLogs) {
+                inventoryLog.interact("Drop");
                 Time.sleep(50, 125);
             }
             Time.sleep(1500, 2000);
