@@ -13,7 +13,7 @@ import org.rspeer.ui.Log;
 
 @ScriptMeta(developer = "Falcon", name = "Professional Cutter", desc = "Cutting trees.", version = 1.1)
 public class Main extends Script {
-    int treesCut = 0;
+    int totalLogsCut = 0;
 
     @Override
     public int loop() {
@@ -47,10 +47,14 @@ public class Main extends Script {
                     .results()
                     .isEmpty(), 3000);
 
-            // Check if user chopped down tree.
-            treesCut += Inventory.getItems(item -> item.getName().equals("Logs")).length - inventoryLogs.length;
+            // Check how many logs user has chopped on the tree.
+            int logsChopped = Inventory.getItems(item -> item.getName().equals("Logs")).length - inventoryLogs.length;
 
-            Log.fine("Trees cut %s", treesCut);
+            if (logsChopped > 0) {
+            totalLogsCut += logsChopped;
+            }
+
+            Log.fine("Trees cut %s", totalLogsCut);
         }
         return Random.low(2000, 5000);
     }
