@@ -27,13 +27,11 @@ public class Main extends Script {
             }
             Time.sleep(1500, 2000);
             inventoryLogs = Inventory.getItems(item -> item.getName().equals("Logs"));
-            Log.fine(inventoryLogs.length);
         }
 
 
         // Informs user about script.
         SceneObject Tree = SceneObjects.getNearest("Tree");
-        SceneObjects.newQuery().names("Tree");
 
         if (Tree.getName() != null) {
             Tree.interact("Chop down");
